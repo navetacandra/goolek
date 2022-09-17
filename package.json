@@ -6,11 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["search_engine", "search", "google"],
+  "keywords": [
+    "search_engine",
+    "search",
+    "google"
+  ],
   "author": "navetacandra <naveta.cand@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
+    "mongodb": "^4.9.1",
     "node-fetch": "^3.2.10"
   }
 }

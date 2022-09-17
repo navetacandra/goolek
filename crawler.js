@@ -173,7 +173,7 @@ async function startCrawl() {
   const parser = new Parser({ $: cheerio.load(responnse) });
 
   parser.links.forEach(u => {
-    const conn = `${url} ${u}`;
+    const conn = `${url} |#####| ${u}`;
     writeFile('connection.txt', `${conn}\n`);
     if (!urlList.includes(u)) {
       urlList.push(u);
@@ -195,7 +195,7 @@ async function startCrawl() {
   else if (parser.title != "") command.title = parser.title;
   else command.title = url;
 
-  writeFile('data.txt', `${command.url} |#| ${command.title} |#| ${command.keywords}\n`);
+  writeFile('data.txt', `${command.url} |#####| ${command.title} |#####| ${command.keywords}\n`);
   startCrawl();
 }
 startCrawl();
