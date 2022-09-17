@@ -1,0 +1,7 @@
+node_modules/
+*-lock.*
+connection.txt
+data.txt
+dis.txt
+done_urls.txt
+urls.txt
