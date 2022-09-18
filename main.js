@@ -1,7 +1,11 @@
 const startCrawl = require("./crawler/crawler");
 const setupGlobal = require("./global");
+const intervalUpdate = require("./intervalUpdate");
 const expressServer = require("./server/app");
 
-expressServer();
-setupGlobal();
-startCrawl();
+(function () {
+  setupGlobal(); // declare all global variable
+  expressServer(); // run express server
+  startCrawl(); // start crawling
+  intervalUpdate(); // intervaling update/backup to firebase db
+})();
