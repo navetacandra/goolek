@@ -4,9 +4,10 @@ const setupGlobal = require('./global');
 const exportConnection = require("./export_data/export_connections");
 const exportWebsitesData = require("./export_data/export_data");
 
+// initializeRequirementFiles();
+setupGlobal();
+
 exportConnection();
 exportWebsitesData();
 
-// initializeRequirementFiles();
-// setupGlobal();
 // startCrawl();

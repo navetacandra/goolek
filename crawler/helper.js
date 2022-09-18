@@ -30,14 +30,13 @@ const crawler_helper = {
   dataFile: dataFile,
   urlsFile: urlsFile,
   disFile: disFile,
-  initializeRequirementFiles: () => {
-    console.log(connectionsFile);
-    if (!fs.existsSync(connectionsFile)) fs.writeFileSync(connectionsFile, "");
-    if (!fs.existsSync(doneURLsFile)) fs.writeFileSync(doneURLsFile, "");
-    if (!fs.existsSync(dataFile)) fs.writeFileSync(dataFile, "");
-    if (!fs.existsSync(urlsFile)) fs.writeFileSync(urlsFile, "");
-    if (!fs.existsSync(disFile)) fs.writeFileSync(disFile, "");
-  },
+  // initializeRequirementFiles: () => {
+  //   if (!fs.existsSync(connectionsFile)) fs.writeFileSync(connectionsFile, "");
+  //   if (!fs.existsSync(doneURLsFile)) fs.writeFileSync(doneURLsFile, "");
+  //   if (!fs.existsSync(dataFile)) fs.writeFileSync(dataFile, "");
+  //   if (!fs.existsSync(urlsFile)) fs.writeFileSync(urlsFile, "");
+  //   if (!fs.existsSync(disFile)) fs.writeFileSync(disFile, "");
+  // },
 };
 
 module.exports = crawler_helper;
