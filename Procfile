@@ -1,2 +1,2 @@
-worker: node main
-web: node main
+worker: node main --run-worker
+web: node main --run-server
