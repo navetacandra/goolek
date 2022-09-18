@@ -7,8 +7,6 @@ const _dir = (...args) => path.join(process.cwd(), ...args);
 function initializeRequirementFiles() {
   if (!fs.existsSync(_dir('results')))
     fs.mkdirSync(_dir('results'))
-  if (!fs.existsSync(_dir('results', 'sql')))
-    fs.mkdirSync(_dir('results', 'sql'))
   if (!fs.existsSync(_dir('results', 'txt')))
     fs.mkdirSync(_dir('results', 'txt'))
   if (!fs.existsSync(connectionsFile)) fs.writeFileSync(connectionsFile, "");
@@ -21,7 +19,7 @@ function initializeRequirementFiles() {
 function setupGlobal() {
   initializeRequirementFiles();
 
-  global.initURL = "https://news.kompas.com";
+  global.initURL = "https://google.com";
   global.urlQueue = [];
   global.urlList = [];
   global.urlLines = fs.readFileSync(urlsFile, "utf-8").split("\n");

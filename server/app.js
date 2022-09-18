@@ -31,30 +31,6 @@ function expressServer() {
       message: "Hello from /"
     })
   });
-  
-  app.get('/get/sql/conn', (req, res) => {
-    logging_req(req);
-    const sqlPath = exportConnection();
-    res.format({'text/plain': () => res.send(fs.readFileSync(sqlPath, 'utf-8'))})
-  })
-
-  app.get('/get/sql/site', (req, res) => {
-    logging_req(req);
-    const sqlPath = exportWebsitesData();
-    res.format({'text/plain': () => res.send(fs.readFileSync(sqlPath, 'utf-8'))})
-  })
-  
-  app.get('/get/txt/conn', (req, res) => {
-    logging_req(req);
-    const txtPath = getTXTPath('connections.txt');
-    res.format({'text/plain': () => res.send(fs.readFileSync(txtPath, 'utf-8'))})
-  })
-
-  app.get('/get/txt/site', (req, res) => {
-    logging_req(req);
-    const txtPath = getTXTPath('data.txt');
-    res.format({'text/plain': () => res.send(fs.readFileSync(txtPath, 'utf-8'))})
-  })
 
   app.get('/get/server_req_log', (req, res) => {
     logging_req(req);
@@ -66,7 +42,7 @@ function expressServer() {
     try {
       await (await fetch(`http://${process.env.HOST}/`))
     } catch (err) {
-      
+      console.log(`Error fetching self`);
     }
   }, 30000);
 

@@ -79,7 +79,7 @@ function dbHandlerSiteData() {
   const db = getDatabase();
   const objectWebsiteData = websiteDataExport();
   Object.keys(objectWebsiteData).forEach((owd, i) => {
-    update(ref(db, `websites/site_${i}`), objectWebsiteData[owd]);
+    update(ref(db, `w/${i}`), objectWebsiteData[owd]);
   });
 }
 
@@ -87,7 +87,7 @@ function dbHandlerSiteConnections() {
   const db = getDatabase();
   const objectWebsiteConnections = websiteConnectionExport();
   Object.keys(objectWebsiteConnections).forEach((owd, i) => {
-    update(ref(db, `connections/site_${i}`), objectWebsiteConnections[owd]);
+    update(ref(db, `c/${i}`), objectWebsiteConnections[owd]);
   });
 }
 
