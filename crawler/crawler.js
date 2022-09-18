@@ -41,6 +41,7 @@ async function startCrawl() {
   let cmd = {
     url: url,
     title: url, 
+    description: parser.description ? parser.description : "",
     keywords: ""
   };
 
@@ -51,7 +52,7 @@ async function startCrawl() {
   else if (parser.title != "") cmd.title = parser.title;
   else cmd.title = url;
 
-  writeFile(dataFile, `${cmd.url} |#####| ${cmd.title} |#####| ${cmd.keywords}\n`);
+  writeFile(dataFile, `${cmd.url} |#####| ${cmd.title} |#####| ${cmd.description} |#####| ${cmd.keywords}\n`);
   writeFile(doneURLsFile, `${url}\n`);
   startCrawl();
 }
