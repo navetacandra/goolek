@@ -1,6 +1,6 @@
 const startCrawl = require("./crawler/crawler");
 const setupGlobal = require("./global");
-const intervalUpdate = require("./intervalUpdate");
+const intervalUpdate = require("./firebase/intervalUpdate");
 const expressServer = require("./server/app");
 
 (function () {
