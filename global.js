@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { writeFile, connectionsFile, doneURLsFile, dataFile, urlsFile, disFile } = require("./crawler/helper");
+const initializeFirebase = require('./firebase/initialize')
 
 const _dir = (...args) => path.join(process.cwd(), ...args);
 
@@ -18,6 +19,7 @@ function initializeRequirementFiles() {
 
 function setupGlobal() {
   initializeRequirementFiles();
+  initializeFirebase()
 
   global.initURL = "https://google.com";
   global.urlQueue = [];
