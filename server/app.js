@@ -3,6 +3,11 @@ const fs = require("fs");
 const path = require("path");
 const exportConnection = require("../export_data/export_connections");
 const exportWebsitesData = require("../export_data/export_data");
+const fetch = (...args) =>
+  import("node-fetch")
+    .then(({ default: fetch }) => fetch(...args))
+    .catch((err) => console.log(err));
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -56,6 +61,14 @@ function expressServer() {
     const txtPath = getFilePath('request_log');
     res.format({'text/plain': () => res.send(fs.readFileSync(txtPath, 'utf-8'))})
   })
+
+  setInterval(async () => {
+    try {
+      await (await fetch(`http://${process.env.HOST}/`))
+    } catch (err) {
+      
+    }
+  }, 30000);
 
   app.listen(port, () => {
     if (!fs.existsSync(getFilePath("request_log")))

@@ -6,3 +6,4 @@ results/txt/data.txt
 results/txt/dis.txt
 results/txt/done_urls.txt
 **/request*
+.env
