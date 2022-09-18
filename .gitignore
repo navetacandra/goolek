@@ -1,5 +1,8 @@
 node_modules/
 *-lock.*
 results/sql/*.sql
-results/txt/*.txt
+results/txt/connections.txt
+results/txt/data.txt
+results/txt/dis.txt
+results/txt/done_urls.txt
 **/request*
