@@ -1,14 +1,10 @@
-https://news.google.com/topstories?hl=id&gl=ID&ceid=ID:id
-https://shopee.com
-https://lazada.com
-https://bukalapak.com
-https://blibli.com
 https://google.com
+https://news.google.com/topstories?hl=id&gl=ID&ceid=ID:id
 https://youtube.com
 https://facebook.com
 https://instagram.com
 https://twitter.com
 https://breached.to
-https://niagahoster.com
+https://niagahoster.co.id
 https://id.wikipedia.org/wiki/Halaman_Utama
 https://en.wikipedia.org/wiki/Main_Page

@@ -25,6 +25,7 @@ async function startCrawl() {
   const parser = new Parser({ $: cheerio.load(responnse), url: url });
 
   parser.links.forEach(u => {
+    u = u.endsWith('/') ? u.slice(0, -1) : u;
     if (!Object.hasOwnProperty.call(global.urlConn, u)) {
       global.urlConn[u] = 1;
     } else {
