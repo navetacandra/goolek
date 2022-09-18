@@ -1,7 +1,6 @@
 class Parser {
-  constructor({ $, url }) {
+  constructor({ $ }) {
     this.$ = $;
-    this.url = url;
     this.headingTags = ["h1", "h2", "h3"];
     this.title = "";
     this.description = "";
@@ -103,14 +102,8 @@ class Parser {
       let attr = el.attribs;
       if (Object.keys(attr).filter((v) => v == "href").length > 0) {
         let href = el.attribs.href;
-        if (href.length > 4 && href.startsWith("http")) {
+        if (href.length > 4 && (href.startsWith("http") || href.startsWith("/"))) {
           this.links.push(href);
-        }
-        if (href.startsWith("//")) {
-          this.links.push(`http:${href}`);
-        }
-        if (href.length > 1 && href.startsWith("/") && href.charAt(1) != '/') {
-          this.links.push(`${this.url.endsWith("/") ? this.url.slice(0, -1) : this.url}${href}`);
         }
       }
     });

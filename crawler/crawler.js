@@ -1,3 +1,4 @@
+const fs = require("fs");
 const cheerio = require("cheerio");
 const Parser = require("./Parser");
 const { writeFile, urlsFile, doneURLsFile, disFile, connectionsFile, dataFile } = require("./helper");
@@ -22,7 +23,7 @@ async function startCrawl() {
     writeFile(disFile, `${url}\n`);
   }
 
-  const parser = new Parser({ $: cheerio.load(responnse), url: url });
+  const parser = new Parser({ $: cheerio.load(responnse) });
 
   parser.links.forEach(u => {
     const conn = `${url} |#####| ${u}`;
