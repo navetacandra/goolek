@@ -29,14 +29,7 @@ const crawler_helper = {
   doneURLsFile: doneURLsFile,
   dataFile: dataFile,
   urlsFile: urlsFile,
-  disFile: disFile,
-  // initializeRequirementFiles: () => {
-  //   if (!fs.existsSync(connectionsFile)) fs.writeFileSync(connectionsFile, "");
-  //   if (!fs.existsSync(doneURLsFile)) fs.writeFileSync(doneURLsFile, "");
-  //   if (!fs.existsSync(dataFile)) fs.writeFileSync(dataFile, "");
-  //   if (!fs.existsSync(urlsFile)) fs.writeFileSync(urlsFile, "");
-  //   if (!fs.existsSync(disFile)) fs.writeFileSync(disFile, "");
-  // },
+  disFile: disFile
 };
 
 module.exports = crawler_helper;

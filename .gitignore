@@ -2,3 +2,4 @@ node_modules/
 *-lock.*
 results/sql/*.sql
 results/txt/*.txt
+**/request*

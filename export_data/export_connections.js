@@ -11,10 +11,11 @@ const getPath = (extension) => {
 function exportConnection() {
   let data = convertFilesToArray(getPath("txt"), " |#####| ");
   let sql =
-    "INSERT INTO `<connections_table>` (`from_url`, `to_url`) VALUES \n";
+    "INSERT INTO `connections_table` (`from_url`, `to_url`) VALUES \n";
   let sql_data = convertToSQL(data).join(", \n");
   sql += sql_data;
   fs.writeFileSync(getPath("sql"), sql);
+  return getPath("sql");
 }
 
 module.exports = exportConnection;

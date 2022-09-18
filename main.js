@@ -1,13 +1,7 @@
 const startCrawl = require("./crawler/crawler");
-const { initializeRequirementFiles } = require("./crawler/helper");
-const setupGlobal = require('./global');
-const exportConnection = require("./export_data/export_connections");
-const exportWebsitesData = require("./export_data/export_data");
+const setupGlobal = require("./global");
+const expressServer = require("./server/app");
 
-// initializeRequirementFiles();
 setupGlobal();
-
-exportConnection();
-exportWebsitesData();
-
-// startCrawl();
+expressServer();
+startCrawl();
