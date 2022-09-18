@@ -1,7 +1,6 @@
-const fs = require("fs");
 const cheerio = require("cheerio");
 const Parser = require("./Parser");
-const { writeFile, urlsFile, doneURLsFile, disFile, connectionsFile, dataFile } = require("./helper");
+const { writeFile, urlsFile, doneURLsFile, disFile, connectionsFile, dataFile, incrementConn, updateConn } = require("./helper");
 const fetch = (...args) =>
   import("node-fetch")
     .then(({ default: fetch }) => fetch(...args))
@@ -26,12 +25,16 @@ async function startCrawl() {
   const parser = new Parser({ $: cheerio.load(responnse), url: url });
 
   parser.links.forEach(u => {
-    const conn = `${url} |#####| ${u}`;
-    writeFile(connectionsFile, `${conn}\n`);
+    if (!Object.hasOwnProperty.call(global.urlConn, u)) {
+      global.urlConn[u] = 1;
+    } else {
+      global.urlConn[u] += 1;
+    }
     if (!global.urlList.includes(u)) {
       global.urlList.push(u);
       global.urlQueue.push(u);
       writeFile(urlsFile, `${u}\n`);
+      updateConn();
     }
   });
 

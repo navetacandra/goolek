@@ -102,7 +102,7 @@ class Parser {
     this.$("a").map((i, el) => {
       let attr = el.attribs;
       if (Object.keys(attr).filter((v) => v == "href").length > 0) {
-        let href = el.attribs.href;
+        let href = el.attribs.href.trim();
         if (href.length > 4 && href.startsWith("http")) {
           this.links.push(href);
         }

@@ -26,11 +26,21 @@ function setupGlobal() {
   global.urlList = [];
   global.urlLines = fs.readFileSync(urlsFile, "utf-8").split("\n");
   global.doneUrlLines = fs.readFileSync(doneURLsFile, "utf-8").split("\n");
+  global.urlConn = {};
 
   global.urlLines.forEach((u) => {
     if (!global.doneUrlLines.includes(u)) global.urlQueue.push(u);
     global.urlList.push(u);
   });
+
+  const setupConn = fs.readFileSync(connectionsFile, 'utf-8').split('\n');
+  if (setupConn.length > 0) {
+    setupConn.forEach(c => {
+      const lineSplit = c.split(' |#####| ');
+      if (lineSplit.length != 2) return;
+      global.urlConn[lineSplit[0]] = Number(lineSplit[1]);
+    })
+  }
 
   if (global.urlQueue.length == 0) {
     global.urlQueue.push(global.initURL);
