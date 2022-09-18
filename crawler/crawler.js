@@ -21,7 +21,6 @@ async function startCrawl() {
   } catch (err) {
     console.log(`Can't reach site.. <${url}>\n`);
     writeFile(disFile, `${url}\n`);
-    return;
   }
 
   const parser = new Parser({ $: cheerio.load(responnse) });
