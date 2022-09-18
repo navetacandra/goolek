@@ -7,5 +7,3 @@ results/txt/dis.txt
 results/txt/done_urls.txt
 **/request*
 .env
-
-private.*
