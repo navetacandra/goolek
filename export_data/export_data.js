@@ -10,7 +10,7 @@ const getPath = (extension) => {
 
 function exportWebsitesData() {
   let data = convertFilesToArray(getPath("txt"), " |#####| ");
-  let sql = "INSERT INTO `websites_table` (`url`, `title`, `keywords`) VALUES \n";
+  let sql = "INSERT INTO `websites_table` (`url`, `title`, `description`, `keywords`) VALUES \n";
   let sql_data = convertToSQL(data).join(', \n');
   sql += sql_data;
   fs.writeFileSync(getPath("sql"), sql);

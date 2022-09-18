@@ -11,7 +11,7 @@ const getPath = (extension) => {
 function exportConnection() {
   let data = convertFilesToArray(getPath("txt"), " |#####| ");
   let sql =
-    "INSERT INTO `connections_table` (`from_url`, `to_url`) VALUES \n";
+    "INSERT INTO `connections_table` (`url`, `count`) VALUES \n";
   let sql_data = convertToSQL(data).join(", \n");
   sql += sql_data;
   fs.writeFileSync(getPath("sql"), sql);
