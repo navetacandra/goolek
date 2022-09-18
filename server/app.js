@@ -1,8 +1,6 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const exportConnection = require("../export_data/export_connections");
-const exportWebsitesData = require("../export_data/export_data");
 const fetch = (...args) =>
   import("node-fetch")
     .then(({ default: fetch }) => fetch(...args))

@@ -1,8 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 
-// function
-
 const connectionsFile = path
   .join(process.cwd(), "results", "txt", `connections.txt`)
   .replace(/\\/g, "/");
