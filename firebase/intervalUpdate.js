@@ -1,7 +1,6 @@
 const fs = require("fs");
 const { getDatabase, ref, update } = require("firebase/database");
 const path = require("path");
-const signIn = require("./signIn");
 
 const getResultsFile = (file) =>
   path.resolve(path.join(process.cwd(), "results", "txt", `${file}.txt`));
@@ -47,29 +46,28 @@ function websiteConnectionExport() {
 }
 
 function dbHandlerSiteData() {
+  const start = Date.now();
   const db = getDatabase();
   const objectWebsiteData = websiteDataExport();
   Object.keys(objectWebsiteData).forEach((owd, i) => {
     update(ref(db, `w/${i}`), objectWebsiteData[owd]);
   });
+  console.log(`Updating Sites Data ${Date.now() - start}ms.`);
 }
 
 function dbHandlerSiteConnections() {
+  const start = Date.now();
   const db = getDatabase();
   const objectWebsiteConnections = websiteConnectionExport();
   Object.keys(objectWebsiteConnections).forEach((owd, i) => {
     update(ref(db, `c/${i}`), objectWebsiteConnections[owd]);
   });
-}
-
-function handlerWraper() {
-  dbHandlerSiteData();
-  dbHandlerSiteConnections();
+  console.log(`Updating Sites Connection ${Date.now() - start}ms.`);
 }
 
 module.exports = () => {
   setInterval(() => {
-    config();
-    signIn(handlerWraper);
+    dbHandlerSiteData();
+    dbHandlerSiteConnections();
   }, 60000);
 };

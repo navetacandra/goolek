@@ -1,4 +1,5 @@
 const { initializeApp } = require("firebase/app");
+const FirebaseSignIn = require("./signIn");
 require("dotenv").config();
 
 function initializeFirebase() {
@@ -12,6 +13,7 @@ function initializeFirebase() {
     appId: process.env.FIREBASE_APP_ID,
     measurementId: process.env.FIREBASE_MEASUREMENT_ID,
   });
+  FirebaseSignIn();
 }
 
 module.exports = initializeFirebase;

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { writeFile, connectionsFile, doneURLsFile, dataFile, urlsFile, disFile } = require("./crawler/helper");
 const initializeFirebase = require('./firebase/initialize')
+const getSavedData = require('./firebase/getSavedData');
 
 const _dir = (...args) => path.join(process.cwd(), ...args);
 
@@ -18,9 +19,6 @@ function initializeRequirementFiles() {
 }
 
 function setupGlobal() {
-  initializeRequirementFiles();
-  initializeFirebase()
-
   global.initURL = "https://google.com";
   global.urlQueue = [];
   global.urlList = [];
@@ -49,4 +47,11 @@ function setupGlobal() {
   }
 };
 
-module.exports = setupGlobal;
+module.exports = (fun) => {
+  initializeRequirementFiles();
+  initializeFirebase();
+  getSavedData(() => {
+    setupGlobal();
+    fun();
+  });
+};

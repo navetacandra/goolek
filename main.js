@@ -9,8 +9,9 @@ const expressServer = require("./server/app");
     expressServer(); // run express server
   }
   if (mode == "--run-worker") {
-    setupGlobal(); // declare all global variable
-    startCrawl(); // start crawling
-    intervalUpdate(); // intervaling update/backup to firebase db
+    setupGlobal(() => {
+      startCrawl(); // start crawling
+      intervalUpdate(); // intervaling update/backup to firebase db
+    }); // declare all global variable
   }
 })();
